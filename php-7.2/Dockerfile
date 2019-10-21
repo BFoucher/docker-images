@@ -52,6 +52,9 @@ RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/
 
 RUN a2enmod rewrite ssl
 
+ENV MYSQL_USER=admin \
+    MYSQL_PASS=admin
+
 RUN mkdir /app
 WORKDIR /app
 
