@@ -20,13 +20,14 @@ RUN apt-get install -y bash \
     libmemcached-dev \
     libpq-dev \
     netcat \
-    cron
+    cron \
+    mysql-common
 
 RUN docker-php-ext-install -j$(nproc) iconv \
     bcmath \
     mbstring \
     pdo \
-    pdo_pgsql
+    pdo_mysql
 
 RUN docker-php-ext-configure intl && docker-php-ext-install intl \
     zip \
