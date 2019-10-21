@@ -36,6 +36,9 @@ RUN docker-php-ext-configure intl && docker-php-ext-install intl \
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     && composer global require "hirak/prestissimo:^0.3"
+# Install NodeJS and npm package management
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -yq nodejs build-essential
 
 # fix npm - not the latest version installed by apt-get
 RUN npm install -g npm
